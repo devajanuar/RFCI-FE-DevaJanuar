@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Page Having A Form</title>
+    <link rel = "stylesheet" type="text/css" href="CSS.css">
+
+    <script>
+        function reverse(){
+            var output = "";
+            var input = document.getElementById("input").value;
+            for (var i = input.length - 1; i >= 0; i--) { 
+                output += input[i]; // or newString = newString + str[i];
+            }
+            document.getElementById("output").innerHTML = output;
+        }
+
+        function undoRedo(){
+            var temporer = "";
+            var input = document.getElementById("input").value;
+            var save = document.getElementById("save").value;
+
+            if(save == null || save == ""){
+                document.getElementById("save").value = input;
+                document.getElementById("input").value = save;
+            }else{
+                document.getElementById("input").value = save;
+                document.getElementById("save").value = input;
+            }
+        }
+    </script>
+</head>
+<body class="center">
+    <center>
+      <form>
+       <table>
+        <tr>
+            <td><input type="text" name="input" id="input"></td><br>
+        </tr>
+        <tr>
+            <td style="text-align: center;"><h2>OUTPUT <h2 id="output"></h2></h2></td>
+        </tr>
+        <tr hidden>
+            <td><input type="text" name="save" id="save"></td><br>
+        </tr>
+        <tr>
+         <td style="text-align: center;"><input type="button" value="Reverse" onclick="reverse()"><input type="button" value="Undo/Redo" onclick="undoRedo()"></td>
+        </tr>
+       </table>
+      </form>
+    </center>
+</body>
+
+
+</html>
